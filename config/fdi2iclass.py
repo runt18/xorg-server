@@ -167,16 +167,16 @@ def print_section(matches, driver, ignore, options):
     '''Print a valid InputClass section to stdout'''
     global num_sections
     print 'Section "InputClass"'
-    print '\tIdentifier "Converted Class %d"' % num_sections
+    print '\tIdentifier "Converted Class {0:d}"'.format(num_sections)
     num_sections += 1
     for m, v in matches:
-        print '\t%s "%s"' % (m, v)
+        print '\t{0!s} "{1!s}"'.format(m, v)
     if driver:
-        print '\tDriver "%s"' % driver
+        print '\tDriver "{0!s}"'.format(driver)
     if ignore:
         print '\tOption "Ignore" "yes"'
     for o, v in options:
-        print '\tOption "%s" "%s"' % (o, v)
+        print '\tOption "{0!s}" "{1!s}"'.format(o, v)
     print 'EndSection'
 
 def parse_fdi(fdi):
